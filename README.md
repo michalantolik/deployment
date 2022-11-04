@@ -53,7 +53,7 @@
 - Check "Internet Information Services" checkbox - *this will check only necessary sub-items*
 - Check .e.g. "Internet Information Services" --> "Application Development Feautres" --> ASP.NET 4.8 - *if your app uses it*
 - Recommendation: install all necessary features for your web app and nothing more - *to avoid security risks*
-- Check installation: open web browser and navigate to `localhost` --> you should see IIS startup page
+- Check installation: open web browser and navigate to `localhost` --> you should see IIS startup page (or any test page)
 ### Manual installation on the server OS
 - Start --> "Server Manager" --> "Add roles and features"
 - Choose "Installation Type" --> "Role-based or feautre-based installation" or "Remote Desktop Service installation"
@@ -62,4 +62,23 @@
 - Choose "Feautres" --> e.g. ".NET Framework 4.5" - *if your app uses it*
 - Choose "Web Server Role (IIS) - Role Services" --> e.g. "Application Development - ASP.NET 4.5"
 - Confirm --> Install --> Restart server
-- Check installation: open web browser and navigate to `localhost` --> you should see IIS startup page
+- Check installation: open web browser and navigate to `localhost` --> you should see IIS startup page (or any test page)
+### Automate IIS install with PowerShell
+- https://github.com/michalantolik/powershell/blob/main/scripts/Enable-IISFeatures.ps1
+- https://github.com/michalantolik/powershell/blob/main/scripts/Disable-IISFeatures.ps1
+- https://github.com/michalantolik/powershell/blob/main/scripts/Get-IISFeatures.ps1
+### Automate IIS install with PowerShell DSC (Desired State Configuration)
+- Copy this PS script to target machine: https://github.com/michalantolik/powershell/blob/main/scripts/Install-IIS-DSC.ps1
+- Navigate to folder where you it was copied with PowerShell and run the following commands:
+```ps
+# Load scripts
+. .\IIS-Install-DSC.ps1
+
+# Execute DSC Configuration --> this will create "DeployWebApp" folder
+DeployWebApp
+
+# Start DSC Configuration
+Start-DscConfiguration -Path .\DeployWebApp -Wait -Verbose
+DeployWebApp
+```
+- Check installation: open web browser and navigate to `localhost` --> you should see IIS startup page (or any test page)
