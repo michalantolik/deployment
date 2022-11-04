@@ -82,3 +82,21 @@ Start-DscConfiguration -Path .\DeployWebApp -Wait -Verbose
 DeployWebApp
 ```
 - Check installation: open web browser and navigate to `localhost` --> you should see IIS startup page (or any test page)
+
+## Publishing web application to IIS
+- **Manual deployment** --> *using Web Deploy*
+- **Automatic deployment** --> *using Web Deploy too*
+
+## Web Deploy - what is it 
+- Client-server application that works together with IIS ...
+- ... and help us with the publishing of applications
+
+## Web Deploy - how to install - manually
+- **Enable feature called "Management Console Services"** in "Server Manager"
+  - Server Manager --> Server Roles --> Web Server (IIS) --> Management Tools --> Management Service --> ...
+  - ... Next --> Install
+- **Install Web Deploy**
+  - Go to `iis.net` webpage --> Downloads --> Deploy & Migrate --> Web Deploy 3.6
+  
+## Web Deploy - how to install - using PowerShell DSC
+- ...
