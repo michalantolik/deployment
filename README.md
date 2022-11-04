@@ -71,13 +71,13 @@
 - Copy this PS script to target machine: https://github.com/michalantolik/powershell/blob/main/scripts/Install-IIS-DSC.ps1
 - Navigate to folder where you it was copied with PowerShell and run the following commands:
 ```ps
-# Load scripts
+# Load the script
 . .\IIS-Install-DSC.ps1
 
-# Execute DSC Configuration --> this will create "DeployWebApp" folder
+# Compile given DSC Configuration --> this will create "DeployWebApp" folder
 DeployWebApp
 
-# Start DSC Configuration
+# Start DSC Configuration from folder where it was compiled
 Start-DscConfiguration -Path .\DeployWebApp -Wait -Verbose
 DeployWebApp
 ```
@@ -99,4 +99,15 @@ DeployWebApp
   - Go to `iis.net` webpage --> Downloads --> Deploy & Migrate --> Web Deploy 3.6
   
 ## Web Deploy - how to install - using PowerShell DSC
-- ...
+- Copy this PS script to target machine: https://github.com/michalantolik/powershell/blob/main/scripts/WebDeploy-DSC.ps1
+- Navigate to folder where you it was copied with PowerShell and run the following commands:
+```ps
+# Load the script
+. .\WebDeploy-DSC.ps1
+
+# Compile given DSC Configuration --> this will create "WebDeployOnly" folder
+WebDeployOnly
+
+# Start DSC Configuration from folder where it was compiled
+Start-DscConfiguration -Path .\WebDeployOnly -Wait -Verbose
+```
