@@ -114,11 +114,11 @@ Start-DscConfiguration -Path .\WebDeployOnly -Wait -Verbose
 ```
 
 ## IIS Deployment - Strategies
-- **Publish to Folder** deployment
+- ### Publish to Folder deployment
   - Publish to local folder from VS
   - Edit `web.config` - *e.g. replace local DB connection strings with production DB*
   - Copy content of `publish` folder to `wwwroot`
-- **Publish to Web Server (IIS) - Web Deploy Package**
+- ### Publish to Web Server (IIS) - Web Deploy Package
   - **Package the application**
     - Publish to Web Server (IIS) from VS
     - Web Deploy Package
@@ -135,7 +135,7 @@ Start-DscConfiguration -Path .\WebDeployOnly -Wait -Verbose
     - Run `Website.deploy.cmd /T` - to test - "what if"
     - Run `Website.deploy.cmd /Y` - to deploy - to local IIS
     - Run `Website.deploy.cmd /Y /M:remote_machine_name /U:username_and_password` - to deploy - to remote IIS
-- **Publish to Web Server (IIS) - Web Deploy**
+- ### Publish to Web Server (IIS) - Web Deploy
   - Publish to Web Server (IIS) from VS
   - Web Deploy
   - Enter Server: "localhost" or some remote server
