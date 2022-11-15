@@ -119,7 +119,7 @@ Start-DscConfiguration -Path .\WebDeployOnly -Wait -Verbose
   - Edit `web.config` - *e.g. replace local DB connection strings with production DB*
   - Copy content of `publish` folder to `wwwroot`
 - ### Publish to Web Server (IIS) - Web Deploy Package
-  - **Package the application**
+  - **Package the application and deploy manually (copy)**
     - Publish to Web Server (IIS) from VS
     - Web Deploy Package
     - Enter Package location
@@ -129,7 +129,7 @@ Start-DscConfiguration -Path .\WebDeployOnly -Wait -Verbose
     - Go to Package location and make sure that (zip + cmd + readme) + other files are there
   - **Deploy the pacakged application to IIS manually**
     - Open IIS Manager --> Deploy --> Import Application *(google for it if missing)* --> Select published ZIP file
-  - **Deplyg the packaged application to IIS using script (cmd)**
+  - **Deploy the packaged application to IIS using script (cmd)**
     - Open commandline in admin mode
     - Go to Package location
     - Run `Website.deploy.cmd /T` - to test - "what if"
@@ -144,3 +144,10 @@ Start-DscConfiguration -Path .\WebDeployOnly -Wait -Verbose
   - Enter DB connection strings
   - Save & Publish
   - Destination URL should be open automatically to make sure that the process went fine
+
+
+## Azure Deployment - Strategies
+- ### Publish to Azure App Service
+  - [Quickstart: Deploy an ASP.NET web app](https://learn.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore?tabs=net60&pivots=development-environment-vs)
+    - Kudu ZIP Push Deployment
+      - Manual, Azure Portal Kudu GUI
