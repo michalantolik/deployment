@@ -24,7 +24,7 @@
 
 ## Client OS vs Server OS
 - Client OS: e.g. Windows 7 (or newer)
-- Server OS: e.g. Windows Server 20112 (or newer)
+- Server OS: e.g. Windows Server 2012 (or newer)
 
 ## Development environment:
 - **E.g. configuration:** Windows 7 + Vistual Studio + Docker for Windows CE
@@ -32,8 +32,9 @@
 ## **Deployment environment**
   - **E.g. configuration:** Windows Server 2012 or newer, IIS 7.5 or newer, .NET Framework 4.5 or newer
   - **Deployment options**
-    - **Own data center (on-premises)**
+    - **On-premises server**
       - a lot of manual work
+      - need to install `IIS` and `Web Deploy`
     - **Azure VM**
       - still a lot of manual work
     - **Azure WebApp/AppService**
@@ -52,7 +53,7 @@
 - Start --> "Turn Windows features on or off"
 - Check "Internet Information Services" checkbox - *this will check only necessary sub-items*
 - Check .e.g. "Internet Information Services" --> "Application Development Feautres" --> ASP.NET 4.8 - *if your app uses it*
-- Recommendation: install all necessary features for your web app and nothing more - *to avoid security risks*
+- Recommendation: install only necessary features for your web app and nothing more - *to avoid security risks*
 - Check installation: open web browser and navigate to `localhost` --> you should see IIS startup page (or any test page)
 ### Manual installation on the server OS
 - Start --> "Server Manager" --> "Add roles and features"
@@ -96,7 +97,7 @@ DeployWebApp
   - Server Manager --> Server Roles --> Web Server (IIS) --> Management Tools --> Management Service --> ...
   - ... Next --> Install
 - **Install Web Deploy**
-  - Go to `iis.net` webpage --> Downloads --> Deploy & Migrate --> Web Deploy 3.6
+  - Go to `iis.net` webpage --> Downloads --> Deploy & Migrate --> Web Deploy 3.6 --> Install this extension
   
 ## Web Deploy - how to install - using PowerShell DSC
 - Copy this PS script to target machine: https://github.com/michalantolik/powershell/blob/main/scripts/WebDeploy-DSC.ps1
@@ -111,3 +112,26 @@ WebDeployOnly
 # Start DSC Configuration from folder where it was compiled
 Start-DscConfiguration -Path .\WebDeployOnly -Wait -Verbose
 ```
+
+## IIS Deployment - Strategies
+- **Publish to Folder** deployment
+  - Publish to local folder from VS
+  - Edit `web.config` - *e.g. replace local DB connection strings with production DB*
+  - Copy content of `publish` folder to `wwwroot`
+- **Publish to Web Server (IIS) - Web Deploy Package**
+  - Package the application
+    - Publish to Web Server (IIS) from VS
+    - Web Deploy Package
+    - Enter Package location
+    - Enter Site name - *"Default Web Site" by default in IIS*
+    - Enter production DB connection strings
+    - Publish
+    - Go to Package location and make sure that (zip + cmd + readme) + other files are there
+  - Deploy the pacakged application to IIS manually
+    - Open IIS Manager --> Deploy --> Import Application *(google for it if missing)* --> Select published ZIP file
+  - Deplyg the packaged application to IIS using script (cmd)
+    - Open commandline in admin mode
+    - Go to Package location
+    - Run `Website.deploy.cmd /T` - to test - "what if"
+    - Run `Website.deploy.cmd /Y` - to deploy - to local IIS
+    - Run `Website.deploy.cmd /Y /M:remote_machine_name /U:username_and_password` - to deploy - to remote IIS
