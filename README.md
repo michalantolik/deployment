@@ -119,7 +119,7 @@ Start-DscConfiguration -Path .\WebDeployOnly -Wait -Verbose
   - Edit `web.config` - *e.g. replace local DB connection strings with production DB*
   - Copy content of `publish` folder to `wwwroot`
 - **Publish to Web Server (IIS) - Web Deploy Package**
-  - Package the application
+  - **Package the application**
     - Publish to Web Server (IIS) from VS
     - Web Deploy Package
     - Enter Package location
@@ -127,11 +127,20 @@ Start-DscConfiguration -Path .\WebDeployOnly -Wait -Verbose
     - Enter production DB connection strings
     - Publish
     - Go to Package location and make sure that (zip + cmd + readme) + other files are there
-  - Deploy the pacakged application to IIS manually
+  - **Deploy the pacakged application to IIS manually**
     - Open IIS Manager --> Deploy --> Import Application *(google for it if missing)* --> Select published ZIP file
-  - Deplyg the packaged application to IIS using script (cmd)
+  - **Deplyg the packaged application to IIS using script (cmd)**
     - Open commandline in admin mode
     - Go to Package location
     - Run `Website.deploy.cmd /T` - to test - "what if"
     - Run `Website.deploy.cmd /Y` - to deploy - to local IIS
     - Run `Website.deploy.cmd /Y /M:remote_machine_name /U:username_and_password` - to deploy - to remote IIS
+- **Publish to Web Server (IIS) - Web Deploy**
+  - Publish to Web Server (IIS) from VS
+  - Web Deploy
+  - Enter Server: "localhost" or some remote server
+  - Enter Site name - *"Default Web Site" by default in IIS*
+  - Enter Destination URL: "http://localhost
+  - Enter DB connection strings
+  - Save & Publish
+  - Destination URL should be open automatically to make sure that the process went fine
