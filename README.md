@@ -77,22 +77,24 @@ DeployWebApp
 ```
 - Check installation: open web browser and navigate to `localhost` --> you should see IIS startup page (or any test page)
 
-## Publishing web application to IIS
-- **Manual deployment** --> *using Web Deploy*
-- **Automatic deployment** --> *using Web Deploy too*
-
-## Web Deploy - what is it 
+## Deployment using "Web Deploy"
+### Web Deploy - what is it 
 - Client-server application that works together with IIS ...
 - ... and help us with the publishing of applications
 
-## Web Deploy - how to install - manually
-- **Enable feature called "Management Console Services"** in "Server Manager"
+### Web Deploy - deployment stratagies
+- Manual
+- Automatic
+
+### Web Deploy - how to install - manually
+- **Enable feature called "Management Service"** in "Server Manager"
   - Server Manager --> Server Roles --> Web Server (IIS) --> Management Tools --> Management Service --> ...
   - ... Next --> Install
-- **Install Web Deploy**
+  - ... to allow IIS web server to be managed remotely from another computer using IIS Manager
+- **Install Web Deploy application**
   - Go to `iis.net` webpage --> Downloads --> Deploy & Migrate --> Web Deploy 3.6 --> Install this extension
   
-## Web Deploy - how to install - using PowerShell DSC
+### Web Deploy - how to install - using PowerShell DSC
 - Copy this PS script to target machine: https://github.com/michalantolik/powershell/blob/main/scripts/WebDeploy-DSC.ps1
 - Navigate to folder where you it was copied with PowerShell and run the following commands:
 ```ps
