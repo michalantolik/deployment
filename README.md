@@ -110,9 +110,10 @@ Start-DscConfiguration -Path .\WebDeployOnly -Wait -Verbose
 
 ## IIS Deployment - Strategies
 - ### Publish to Folder deployment
-  - Publish to local folder from VS
-  - Edit `web.config` - *e.g. replace local DB connection strings with production DB*
-  - Copy content of `publish` folder to `wwwroot`
+  - Publish to local folder from VS --> e.g. to `C:\Deploy\FolderDeployment`
+  - Edit `web.config` file in `C:\Deploy\FolderDeployment` - *e.g. replace local DB connection strings with production DB*
+  - Copy content of `C:\Deploy\FolderDeployment` folder to `C:\inetpub\wwwroot`
+  - Browse to `localhost` to test the website
 - ### Publish to Web Server (IIS) - Web Deploy Package
   - **Package the application and deploy manually (copy)**
     - Publish to Web Server (IIS) from VS
