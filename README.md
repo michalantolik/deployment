@@ -5,7 +5,10 @@
 - [IIS Architecture](https://www.linkedin.com/learning/deploying-asp-dot-net-applications/iis-introduction)
 - [IIS Installation](https://www.linkedin.com/learning/deploying-asp-dot-net-applications/iis-introduction)
 
-## Demo Apps
+## Course Environment
+### Machine Configuration
+- **E.g. configuration:** Windows 7 + Vistual Studio + Docker for Windows CE
+### Demo Apps
 - [Demo app from ASP.NET MVC: Building for Productivity and Maintainability - *Jess Chadwick*](https://www.linkedin.com/learning/asp-dot-net-mvc-building-for-productivity-and-maintainability/improve-the-design-of-your-asp-dot-net-mvc-applications?autoplay=true)
 - [Demo app from Deploying ASP.NET Applications - *Tiberiu Covaci*](https://www.linkedin.com/learning/deploying-asp-dot-net-applications/)
   - In case of <code>Server Error in '/' Application</code> like this one below
@@ -17,36 +20,26 @@
 ## IIS (Internet Information Server) is a web server for hosting web applications
 - Including ASP.NET web apps
 
-## Deployment strategies (each uses IIS behind the scenes)
-- IIS
-- Azure
-- Docker
-
-## Client OS vs Server OS
+## Deployment Strategies (each uses IIS behind the scenes)
+### Operating Systems
 - Client OS: e.g. Windows 7 (or newer)
 - Server OS: e.g. Windows Server 2012 (or newer)
-
-## Development environment:
-- **E.g. configuration:** Windows 7 + Vistual Studio + Docker for Windows CE
-
-## **Deployment environment**
-  - **E.g. configuration:** Windows Server 2012 or newer, IIS 7.5 or newer, .NET Framework 4.5 or newer
-  - **Deployment options**
-    - **On-premises server**
-      - a lot of manual work
-      - need to install `IIS` and `Web Deploy`
-    - **Azure VM**
-      - still a lot of manual work
-    - **Azure WebApp/AppService**
-      - much less manual work
-      - IIS is already preinstalled behind the scenes by Microsoft *(infrastracture abstracted away)*
-      - just configure connection strings for DBs, staging areas etc.
-      - avoid manual patching and updating
-      - auto-scaling
-    - **Azure ACI**
-      - Azure Container Instances
-    - **Azure AKS**
-      - Azure Kubernetes Service
+### Deployment Strategies
+- **IIS --> on client OS**
+  - a lot of manual work
+  - need to install `IIS` and `Web Deploy`
+- **IIS --> on server OS** (on-premises server or Azure VM)
+  - still a lot of manual work
+- **Azure WebApp/AppService**
+  - much less manual work
+  - IIS is already preinstalled behind the scenes by Microsoft *(infrastracture abstracted away)*
+  - just configure connection strings for DBs, staging areas etc.
+  - avoid manual patching and updating
+- **Docker**
+  - **Azure ACI**
+    - Azure Container Instances
+  - **Azure AKS**
+    - Azure Kubernetes Service
 
 ## IIS Installation
 ### Manual installation on the client OS
