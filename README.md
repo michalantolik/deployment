@@ -4,6 +4,7 @@
 - [Deploying ASP.NET Applications - LinkedIn](https://www.linkedin.com/learning/deploying-asp-dot-net-applications/)
 - [IIS Architecture](https://www.linkedin.com/learning/deploying-asp-dot-net-applications/iis-introduction)
 - [IIS Installation](https://www.linkedin.com/learning/deploying-asp-dot-net-applications/iis-introduction)
+- [What Is an IIS Application Pool - GREAT ONE!](https://stackify.com/what-is-an-iis-application-pool/)
 
 ## Course Environment
 ### Machine Configuration
@@ -19,6 +20,22 @@
 
 ## IIS (Internet Information Server) is a web server for hosting web applications
 - Including ASP.NET web apps
+
+## IIS - Terminology
+### Application Pool
+- Collection of websites running as a single process, with a single identity ...
+- ... each application pool consists of a process called `w3wp.exe` that runs on the server machine
+- https://stackify.com/what-is-an-iis-application-pool/
+
+## Application Pool - Benefits
+- **Splitting websites over application pools allows ...**
+  - ... more rigid security between the websites
+  - ... as well as preventing one website from crashing if another one does *(better reliability/availability)*
+  - Application pools are used to separate sets of IIS worker processes ...
+  - ... that share the same configuration and application boundaries
+- **Combining multiple sites into a single application pool ...**
+  - ... is to either share resources
+  - ...or to leave a smaller server footprint on the server
 
 ## Deployment Strategies (each uses IIS behind the scenes)
 ### Operating Systems
