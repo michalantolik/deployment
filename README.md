@@ -5,6 +5,7 @@
 - [IIS Architecture](https://www.linkedin.com/learning/deploying-asp-dot-net-applications/iis-introduction)
 - [IIS Installation](https://www.linkedin.com/learning/deploying-asp-dot-net-applications/iis-introduction)
 - [What Is an IIS Application Pool - GREAT ONE!](https://stackify.com/what-is-an-iis-application-pool/)
+- [Publish WebAPI from Visual Studio to IIS using Web Deploy](https://www.linkedin.com/learning/advanced-asp-dot-net-web-api-2-2/iis-hosting?autoplay=true)
 
 ## Course Environment
 ### Machine Configuration
