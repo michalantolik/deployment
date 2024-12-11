@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35527.113 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCDemo-Core-8.0", "MVCDemo-Core-8.0\MVCDemo-Core-8.0.csproj", "{002B8BD4-A572-48EC-BB46-C03D3EFC44BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCDemo-Core-80", "MVCDemo-Core-80\MVCDemo-Core-80.csproj", "{002B8BD4-A572-48EC-BB46-C03D3EFC44BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
